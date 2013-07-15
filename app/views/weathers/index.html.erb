@@ -1,1 +1,4 @@
-<%= @weather[:temp] %>
+<% @weather.each do |w| %>
+	<%= @weather[:temp] %>
+	<%= @weather[:condition] %>
+<% end %>

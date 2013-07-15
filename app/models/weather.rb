@@ -16,9 +16,11 @@ class Weather
 	end
 
 	def conditions
+		res = response
 		@attributes = {}
-		temp = response['current_observation']['temperature_string']
-		@attributes[:temp] = temp
+		@attributes = { :temp => res['current_observation']['temperature_string'],
+										:condition => res['current_observation']['weather']
+									}
 		@attributes
 	end
 
