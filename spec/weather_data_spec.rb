@@ -1,19 +1,39 @@
 require 'spec_helper'
 
 describe 'Weather' do 
-	let(:city) { 'Lynn' }
+
+	let(:zip) { '01904' }
+	let(:result) { Weather.new(zip) }
 
 	it 'gets the weather information for the city specified' do 
-
-		result = Weather.new(city)
-		expect(result).to be_kind_of(Weather)
+			expect(result).to be_kind_of(Weather)
 	end
 
-	it 'gives the temperature when returned' do 
-
-		result = Weather.new(city)
-		expect(result.temperature).to be_kind_of(Integer)
+	it 'returns a hash when response is classed' do 
+		VCR.use_cassette('weather') do 	
+			expect(result.response.class).to be(Hash)
+		end
 	end
+
+	it 'returns the temperature of the location' do 
+		VCR.use_cassette('weather') do 
+			expect(result.temperature.class).to eql(String)
+		end
+	end
+
 
 end
 
+class VCRTest < Test::Unit::TestCase
+  def test_example_dot_com
+    VCR.use_cassette('weather') do
+      response = Net::HTTP.get_response(URI('http://www.iana.org/domains/example/'))
+      assert_match /Example Domains/, response.body
+    end
+  end
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :webmock # or :fakeweb
+end
