@@ -34,7 +34,8 @@ end
 
 group :test do 
 	gem 'vcr'
-	# gem 'webmock'
+	gem 'webmock'
+	gem 'launchy'
 end
 
 # To use ActiveModel has_secure_password

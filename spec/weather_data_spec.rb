@@ -17,7 +17,7 @@ describe 'Weather' do
 
 	it 'returns the temperature of the location' do 
 		VCR.use_cassette('weather') do 
-			expect(result.temperature.class).to eql(String)
+			expect(result.conditions[:temp]).to eql("80.1 F (26.7 C)")
 		end
 	end
 
