@@ -16,12 +16,17 @@ describe 'Weather' do
 	end
 
 	it 'returns the temperature of the location' do 
-		VCR.use_cassette('weather') do 
+		VCR.use_cassette('weather') do
 			expect(result.conditions[:temp]).to eql("80.1 F (26.7 C)")
 		end
 	end
 
+	it 'returns the temperature of the location' do 
+		VCR.use_cassette('weather') do 
+			expect(result.conditions[:condition]).to eql('Mostly Cloudy')
 
+		end
+	end
 end
 
 class VCRTest < Test::Unit::TestCase
@@ -33,7 +38,7 @@ class VCRTest < Test::Unit::TestCase
   end
 end
 
-# VCR.configure do |c|
-#   c.cassette_library_dir = 'fixtures/vcr_cassettes'
-#   c.hook_into :webmock # or :fakeweb
-# end
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :webmock # or :fakeweb
+end
