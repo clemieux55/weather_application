@@ -13,6 +13,7 @@ gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'simple_form'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -33,7 +34,7 @@ end
 
 group :test do 
 	gem 'vcr'
-	gem 'webmock'
+	# gem 'webmock'
 end
 
 # To use ActiveModel has_secure_password

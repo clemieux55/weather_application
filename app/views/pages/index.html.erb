@@ -1,0 +1,4 @@
+<%= simple_form_for 'Weather', url: weathers_path, method: :get do |w| %>
+	<%= w.input :zipcode %>
+	<%= w.submit "ZipCode" %>
+<% end %>

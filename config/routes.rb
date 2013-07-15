@@ -1,4 +1,17 @@
 WeatherApplication::Application.routes.draw do
+  get "pages/index"
+
+  get "pages/show"
+
+  resources :weathers
+
+  resources :pages, only: [:show, :index]
+
+  resources :pages do 
+    resources :weathers, :only => [:show, :index]
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +61,7 @@ WeatherApplication::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'pages#index'
 
   # See how all your routes lay out with "rake routes"
 

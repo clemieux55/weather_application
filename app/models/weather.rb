@@ -15,10 +15,11 @@ class Weather
 		response = get_weather
 	end
 
-	def temperature
+	def conditions
 		@attributes = {}
 		temp = response['current_observation']['temperature_string']
 		@attributes[:temp] = temp
+		@attributes
 	end
 
 	private

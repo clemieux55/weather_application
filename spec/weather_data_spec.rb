@@ -33,7 +33,7 @@ class VCRTest < Test::Unit::TestCase
   end
 end
 
-VCR.configure do |c|
-  c.cassette_library_dir = 'fixtures/vcr_cassettes'
-  c.hook_into :webmock # or :fakeweb
-end
+# VCR.configure do |c|
+#   c.cassette_library_dir = 'fixtures/vcr_cassettes'
+#   c.hook_into :webmock # or :fakeweb
+# end

@@ -8,7 +8,10 @@ feature 'viewing the temperature', %q{
 
 
 
-	scenario 'view the temperature' do 
-		visit root_path
-		fill_in 'Zip Code', :with => '01904'
-		expect(page).to have_content(80.1 F (26.7 C))
+	scenario 'view the temperature', focus: true do 
+		visit pages_index_path
+		fill_in 'Weather_zipcode', :with => '01904'
+		click_on 'ZipCode'
+		expect(page).to have_content("80.1 F")
+	end
+end

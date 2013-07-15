@@ -7,8 +7,8 @@ require 'capybara'
 require 'factory_girl_rails'
 require 'pry'
 require 'database_cleaner'
-require 'webmock'
-require 'vcr'
+# require 'webmock'
+# require 'vcr'
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -21,6 +21,9 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
+
+  config.filter_run :focus => true
+  config.run_all_when_everything_filtered = true
 
 
   RSpec.configure do |config|
