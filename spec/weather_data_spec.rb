@@ -24,7 +24,6 @@ describe 'Weather' do
 	it 'returns the temperature of the location' do 
 		VCR.use_cassette('weather') do 
 			expect(result.conditions[:condition]).to eql('Mostly Cloudy')
-
 		end
 	end
 end

@@ -27,13 +27,13 @@ group :test, :development do
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'factory_girl_rails'
-  gem 'shoulda'
   gem 'pry'
   gem 'database_cleaner'
 end
 
 group :test do 
 	gem 'vcr'
+  gem 'shoulda-matchers'
 	gem 'webmock'
 	gem 'launchy'
 end
