@@ -1,4 +1,19 @@
-<% @weather.each do |w| %>
-	<%= @weather[:temp] %>
+<div class="weather-info">
+	<p class="weather-info-paragraph">
+		Get Your Weather
+	</p>
+	<%= @weather[:temp] %><br>
 	<%= @weather[:condition] %>
-<% end %>
+	<%= @weather[:icon] %>
+	<%= simple_form_for :todo, method: :post do |t| %>
+		<%= t.input_field :title, placeholder: 'Title', label: false %><br>
+		<%= t.text_area :description, placeholder: 'Description', label: false, rows: 4 %><br>
+		<%= t.submit 'Do the To', :class => "do-button" %>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+
+
+</script>
+

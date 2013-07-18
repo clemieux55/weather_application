@@ -9,4 +9,12 @@ class WeathersController < ApplicationController
 		end
 	end
 
+	def create
+		@todo = Todo.new(params[:todo])
+	end
+
+	def show
+		@todo = Todo.find(params[:todo])
+	end
+
 end

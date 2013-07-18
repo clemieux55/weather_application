@@ -19,7 +19,8 @@ class Weather
 		res = response
 		@attributes = {}
 		@attributes = { :temp => res['current_observation']['temperature_string'],
-										:condition => res['current_observation']['weather']
+										:condition => res['current_observation']['weather'],
+										:icon => res["current_observation"]['icon']
 									}
 		@attributes
 	end
@@ -30,5 +31,4 @@ class Weather
 		uri = URI("http://api.wunderground.com/api/#{Weather.api_key}/conditions/q/#{@zipcode}.json")
 		response = JSON.parse(Net::HTTP.get(uri))
 	end
-
 end

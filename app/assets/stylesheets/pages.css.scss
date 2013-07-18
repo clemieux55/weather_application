@@ -1,3 +1,17 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.do-button {
+	color: black;
+	background-color: #7B68EE;
+	border-radius: .7em;
+	font-weight: bold;
+}
+
+.weather-info {
+	text-align: center;
+	color: #FEF1E9;
+}
+
+
+html {
+	background: url('../weather.jpg');
+	background-size: 100%;
+}
